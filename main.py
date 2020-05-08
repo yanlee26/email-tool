@@ -1,12 +1,12 @@
 #coding: utf-8    
 import os
 import smtplib    
-from string import Template
 from email.mime.multipart import MIMEMultipart   
 from email.mime.text import MIMEText    
-# from email.mime.image import MIMEImage 
 from email.header import Header   
-    
+
+from utils import read_template, get_contacts
+
 #设置smtplib所需的参数
 #下面的发件人，收件人是用于邮件传输的。
 smtpserver = 'smtp.163.com'
@@ -67,32 +67,6 @@ subject = '你好，世界！'
 # #text_att["Content-Disposition"] = u'attachment; filename="中文附件.txt"'.decode('utf-8')
 # msg.attach(text_att)    
 
-
-def get_contacts(filename):
-    """
-    Return two lists names, emails containing names and email addresses
-    read from a file specified by filename.
-    """
-    
-    names = []
-    emails = []
-    ccs = []
-    with open(filename, mode='r', encoding='utf-8') as contacts_file:
-        for contact in contacts_file:
-            names.append(contact.split()[0])
-            emails.append(contact.split()[1])
-            ccs.append(contact.split()[2])
-    return names, emails, ccs
-
-def read_template(filename):
-    """
-    Returns a Template object comprising the contents of the 
-    file specified by filename.
-    """
-    
-    with open(filename, 'r', encoding='utf-8') as template_file:
-        template_file_content = template_file.read()
-    return Template(template_file_content)
 
 #发送邮件
 def main(contactsFile, tplFile):

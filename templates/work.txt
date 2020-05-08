@@ -1,0 +1,14 @@
+Dear ${PERSON_NAME}, 
+
+这周干了什么
+${CURRENT}
+
+学习了什么
+${LEARNED}
+碰到的问题
+${QUESTION}
+
+下周计划
+${NEXT}
+
+谢谢！
