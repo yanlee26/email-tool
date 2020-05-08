@@ -13,7 +13,7 @@ my_sender = 'yanli@xiaoheiban.cn'
 my_user = '1393273899@qq.com'
 my_pass = os.environ['pwd']
 username = 'elliot29'
-cc = '闫立 <yanli@xiaoheiban.cn>; 试试 <1393273899@qq.com>'
+cc = 'xx <yanli@xiaoheiban.cn>; yy <1393273899@qq.com>'
 
 CURRENT = '''
 1. sentry 配置
@@ -54,7 +54,7 @@ def mail():
         msg = MIMEText(message, 'plain', 'utf-8')# 括号里的对应发件人邮箱昵称、 发件人邮箱账号
         msg['From'] = formataddr([username, my_sender])# 括号里的对应收件人邮箱昵称、 收件人邮箱账号
 
-        msg['To'] = formataddr([my_user, my_sender])# 邮件的主题
+        msg['To'] = formataddr(['收件人', my_user])# 邮件的主题
         msg['Subject'] = "12周周报"
         msg['Cc'] = cc
 
